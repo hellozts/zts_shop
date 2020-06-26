@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * App\Models\UserAddress
+ *
+ * @property-read mixed $full_address
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress query()
+ * @mixin \Eloquent
+ * @property int $id
+ * @property int $user_id
+ * @property string $province
+ * @property string $city
+ * @property string $district
+ * @property string $address
+ * @property int $zip
+ * @property string $contact_name
+ * @property string $contact_phone
+ * @property \Illuminate\Support\Carbon|null $last_used_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereContactName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereContactPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereDistrict($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereLastUsedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserAddress whereZip($value)
+ */
+class UserAddress extends Model
+{
+    //
+    protected $fillable = [
+        'province',
+        'city',
+        'district',
+        'address',
+        'zip',
+        'contact_name',
+        'contact_phone',
+        'last_used_at'
+    ];
+
+    protected $table = 'user_addresses';
+
+    protected $dates = ['last_used_at'];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getFullAddressAttribute() {
+        return "{$this->province}{$this->city}{$this->district}{$this->address}";
+    }
+}

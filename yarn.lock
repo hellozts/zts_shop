@@ -1683,6 +1683,11 @@ charenc@~0.0.1:
   resolved "https://registry.npm.taobao.org/charenc/download/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
   integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
 
+china-area-data@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/china-area-data/download/china-area-data-5.0.0.tgz#7cf38bab4cdca96db8771fe583d6fa652b8f96ba"
+  integrity sha1-fPOLq0zcqW24dx/lg9b6ZSuPlro=
+
 "chokidar@>=2.0.0 <4.0.0", chokidar@^3.4.0:
   version "3.4.0"
   resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.4.0.tgz#b30611423ce376357c765b9b8f904b9fba3c0be8"
