@@ -18,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
         //aliapy
         $this->app->singleton('alipay', function() {
             $config = config('pay.alipay');
+            $config['notify_url'] = 'http://requestbin.net/r/140vsnr1';
+            $config['return_url'] = route('payment.alipay.return');
             if(app()->environment() !== 'production') {
                 $config['mode'] = 'dev';
                 $config['log']['level'] = Logger::DEBUG;
