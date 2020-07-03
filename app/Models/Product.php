@@ -37,6 +37,7 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read mixed $image_url
  */
 class Product extends Model
 {
