@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 /**
  * App\Models\Order
@@ -143,5 +144,12 @@ class Order extends Model
 
     public function items() {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public static function getAvailableRefundNo() {
+        do {
+            $no = Uuid::uuid4()->getHex();
+        } while(self::query()->where('refund_no', $no)->exists());
+        return $no;
     }
 }
